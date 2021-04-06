@@ -14,7 +14,6 @@ def increase_brightness(img, value=30):
 
 def adjust_bright(value):
   img = cv2.imread('./internet/quiz2.png', cv2.IMREAD_UNCHANGED)
-  img = img
   lim = 255 - value
   img[img > lim] = 255
   img[img <= lim] += value
