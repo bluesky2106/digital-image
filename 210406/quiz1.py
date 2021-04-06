@@ -1,7 +1,7 @@
 import cv2
 
-img = cv2.imread('./internet/4155459.png', cv2.IMREAD_UNCHANGED)
-gray = cv2.imread('./internet/4155459.png', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('./internet/quiz1.png', cv2.IMREAD_UNCHANGED)
+gray = cv2.imread('./internet/quiz1.png', cv2.IMREAD_GRAYSCALE)
 img256 = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 img128 = cv2.convertScaleAbs(img256, alpha=(127.0/255.0))
 img64 = cv2.convertScaleAbs(img128, alpha=(63.0/127.0))
