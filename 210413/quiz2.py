@@ -13,10 +13,11 @@ def wait():
 def gamma_correct(c, gamma):
   img = cv2.imread('./images/origin.jpg', cv2.IMREAD_UNCHANGED)
   new_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-  # for y in range(img.shape[0]):
-  #   for x in range(img.shape[1]):
-  #     new_image[y,x] = np.clip(c*img[y,x] + gamma, 0, 255)
-  new_image[:,:] = np.clip(c*new_image[:,:] ** gamma, 0, 255)
+  for y in range(new_image.shape[0]):
+    for x in range(new_image.shape[1]):
+      value = c * (new_image[y,x] ** gamma)
+      if value > 255: value = 255
+      new_image[y,x] = value
   return new_image
 
 # origin image
@@ -37,10 +38,12 @@ gImg3 = gamma_correct(c, gamma3)
 
 # cv2.imshow('Original Image', img)
 # cv2.imshow('Original Gray Image', gray)
-cv2.imshow('Gamma = 0.2', gImg1)
-cv2.imshow('Gamma = 1', gImg2)
-cv2.imshow('Gamma = 5', gImg3)
+# cv2.imshow('Gamma = 0.2', gImg1)
+# cv2.imshow('Gamma = 1', gImg2)
+# cv2.imshow('Gamma = 5', gImg3)
 
-
+cv2.imwrite('./images/quiz2_gamma_02.png',gImg1)
+cv2.imwrite('./images/quiz2_gamma_1.png',gImg2)
+cv2.imwrite('./images/quiz2_gamma_5.png',gImg3)
 
 wait()

@@ -22,8 +22,10 @@ ret, thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
 
 # cv2.imshow('Original Image', img)
 # cv2.imshow('Original Gray Image', gray)
-cv2.imshow('Threshold Image', thresh)
+# cv2.imshow('Threshold Image', thresh)
 
+cv2.imwrite('./images/quiz1_origin_gray.png',gray)
+cv2.imwrite('./images/quiz1_thresshold_05.png',thresh)
 
 
 wait()
