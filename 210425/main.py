@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-
 def wait():
   k = cv2.waitKey(0)
   if k == 27:         # wait for ESC key to exit
